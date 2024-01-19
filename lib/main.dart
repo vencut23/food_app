@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
                         ),
         )
       ),
-         home:Product_details(product:products[0]),
+         home:HomePage(),
     );
   }
 }
