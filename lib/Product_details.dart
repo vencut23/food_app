@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/cart_provider.dart';
+import 'package:provider/provider.dart';
 
 class Product_details extends StatefulWidget {
   final Map<String,Object> product;
@@ -11,7 +13,24 @@ class Product_details extends StatefulWidget {
 
 class _Product_detailsState extends State<Product_details> {
   var quantity=1;
-
+  void ontap(){
+    if(quantity!=0){
+      Provider.of<CardProvider>(context,listen: false).addItem(
+        {
+    'id':widget.product['id'],
+    'Catagory':widget.product['Catagory'],
+    'Name':widget.product['Name'],
+    'Quantity': quantity,
+     'Price':widget.product['Price'],
+      'ImageURL':widget.product['ImageURL'],
+     }
+     );
+     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Succesfully added to Card!')));
+    }else{
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Select Quantity more than one!')));
+    }
+      
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,7 +96,7 @@ class _Product_detailsState extends State<Product_details> {
                                 ),
                                 onPressed: (){
                                 setState(() {
-                                  if(quantity<=1) quantity=1;
+                                  if(quantity<=0) quantity=0;
                                   else quantity--;
                                 });
                               }, child: Icon(Icons.arrow_downward)),
@@ -85,9 +104,8 @@ class _Product_detailsState extends State<Product_details> {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(25.0),
-                        child: ElevatedButton(onPressed: (){
-                        
-                        }, child: Row(
+                        child: ElevatedButton(onPressed: ontap,
+                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Icons.shopping_cart,

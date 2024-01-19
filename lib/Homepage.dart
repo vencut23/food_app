@@ -3,7 +3,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/card_page.dart';
+import 'package:flutter_application_2/cart_page.dart';
 import 'package:flutter_application_2/product_list.dart';
 
 class HomePage extends StatefulWidget {
