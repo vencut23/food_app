@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/Homepage.dart';
-import 'package:flutter_application_2/Product_details.dart';
-import 'package:flutter_application_2/cart_provider.dart';
+import 'package:flutter_application_2/pages/Homepage.dart';
+import 'package:flutter_application_2/pages/Product_details.dart';
+import 'package:flutter_application_2/pages/cart_provider.dart';
 import 'package:flutter_application_2/global_variable.dart';
 import 'package:provider/provider.dart';
 
